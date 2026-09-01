@@ -1,0 +1,255 @@
+Screen {
+    background: #070708;
+    color: #d8dbe0;
+}
+
+OpsHeader {
+    dock: top;
+    height: 3;
+    background: #16171a;
+    color: #d8dbe0;
+    border-top: tall #8d939c;
+    border-bottom: tall #2a2c31;
+    padding: 0 1;
+    layout: horizontal;
+}
+
+OpsHeader #clock {
+    dock: right;
+    width: 22;
+    content-align: right middle;
+    color: #6e737c;
+}
+
+OpsHeader #brand {
+    width: 5;
+    content-align: left middle;
+    color: #e8ebef;
+    text-style: bold;
+}
+
+OpsHeader #product {
+    width: 8;
+    content-align: left middle;
+    color: #9aa3ad;
+    text-style: bold;
+}
+
+OpsHeader #org {
+    width: 56;
+    content-align: left middle;
+    color: #a8b0ba;
+}
+
+OpsHeader #health {
+    width: 1fr;
+    content-align: left middle;
+}
+
+OpsFooter {
+    dock: bottom;
+    height: 1;
+    background: #16171a;
+    color: #8b939c;
+    border-top: tall #2a2c31;
+    padding: 0 1;
+}
+
+#body {
+    height: 1fr;
+}
+
+#sidebar {
+    width: 24;
+    background: #0c0d10;
+    border-right: tall #2a2c31;
+}
+
+#sidebar Tree {
+    background: #0c0d10;
+    color: #b4bac2;
+    padding: 0 0;
+}
+
+#sidebar .tree--cursor {
+    background: #2a2e34;
+    color: #f2f4f6;
+    text-style: bold;
+}
+
+#center {
+    width: 1fr;
+    height: 1fr;
+}
+
+ObjectBrowser, Dashboard, SyncView, SettingsView {
+    height: 1fr;
+}
+
+.dash-grid {
+    layout: grid;
+    grid-size: 2 2;
+    grid-columns: 1fr 1fr;
+    grid-rows: 1fr 1fr;
+    grid-gutter: 1 1;
+    height: 1fr;
+}
+
+#sync-buttons {
+    height: 3;
+    padding: 1 1;
+}
+
+#filter-bar {
+    height: 3;
+    background: #121316;
+    border-bottom: tall #2a2c31;
+    padding: 0 1;
+}
+
+#filter-bar Input {
+    background: #070708;
+    border: tall #3a3d44;
+    color: #d8dbe0;
+}
+
+#filter-bar Input:focus {
+    border: tall #c5ccd4;
+}
+
+#table-wrap {
+    height: 1fr;
+}
+
+DataTable {
+    background: #070708;
+    height: 1fr;
+}
+
+DataTable > .datatable--header {
+    background: #16171a;
+    color: #c5ccd4;
+    text-style: bold;
+}
+
+DataTable > .datatable--cursor {
+    background: #2a2e34;
+    color: #f4f6f8;
+}
+
+DataTable > .datatable--hover {
+    background: #141518;
+}
+
+#inspector {
+    width: 38;
+    background: #0c0d10;
+    border-left: tall #2a2c31;
+}
+
+#inspector-title {
+    background: #16171a;
+    color: #c5ccd4;
+    text-style: bold;
+    padding: 0 1;
+    height: 1;
+    border-bottom: tall #2a2c31;
+}
+
+#inspector-body {
+    padding: 1;
+}
+
+#view-title {
+    height: 1;
+    padding: 0 1;
+    color: #c5ccd4;
+    text-style: bold;
+    background: #16171a;
+    border-bottom: tall #2a2c31;
+}
+
+Dashboard {
+    padding: 1 1;
+}
+
+.panel {
+    background: #121316;
+    border: tall #3a3d44;
+    padding: 1;
+    margin: 0 1 1 0;
+}
+
+.panel-title {
+    color: #c5ccd4;
+    text-style: bold;
+    height: 1;
+}
+
+ModalScreen {
+    align: center middle;
+}
+
+#modal {
+    width: 72;
+    max-height: 28;
+    background: #121316;
+    border: tall #c5ccd4;
+    padding: 1 2;
+}
+
+#modal.danger {
+    border: tall #c44545;
+}
+
+#modal-title {
+    text-style: bold;
+    color: #e8ebef;
+    height: 1;
+    margin-bottom: 1;
+}
+
+#modal.danger #modal-title {
+    color: #c44545;
+}
+
+#modal Input, #modal Select {
+    margin-bottom: 1;
+    background: #070708;
+    border: tall #3a3d44;
+}
+
+#modal Input:focus {
+    border: tall #c5ccd4;
+}
+
+#modal-buttons {
+    height: 3;
+    align: right middle;
+}
+
+Button {
+    margin-left: 1;
+}
+
+Button.primary {
+    background: #2a2e34;
+    color: #e8ebef;
+    border: tall #8d939c;
+}
+
+Button.danger {
+    background: #2a1214;
+    color: #e8a0a0;
+    border: tall #c44545;
+}
+
+HelpScreen #modal {
+    width: 80;
+    height: 24;
+}
+
+.help-bind {
+    color: #c5ccd4;
+    text-style: bold;
+}
