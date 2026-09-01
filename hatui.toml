@@ -1,0 +1,22 @@
+mode = "mock"
+org_name = "BlackRainLabs"
+domain = "blackrainlabs.corp"
+entra_tenant = "blackrainlabs.onmicrosoft.com"
+exchange_org = "BlackRainLabs"
+
+[ldap]
+enabled = false
+auth = "login"
+server = ""
+username = ""
+bind_dn = ""
+base_dn = "DC=blackrainlabs,DC=corp"
+use_ssl = true
+
+[graph]
+enabled = false
+auth = "login"
+tenant_id = ""
+client_id = ""
+username = ""
+scope = "https://graph.microsoft.com/.default"
