@@ -40,6 +40,14 @@ BLACKRAIN = Theme(
         "footer-key-foreground": "#c5ccd4",
         "button-color-foreground": "#070708",
         "input-selection-background": "#7f93a6 35%",
+        "scrollbar": "#5c6168",
+        "scrollbar-hover": "#8d939c",
+        "scrollbar-active": "#c5ccd4",
+        "scrollbar-background": "#0c0d10",
+        "scrollbar-background-hover": "#121316",
+        "scrollbar-background-active": "#121316",
+        "scrollbar-corner-color": "#0c0d10",
+        "screen-selection-background": "#2a2e34",
     },
 )
 
@@ -68,6 +76,7 @@ class HatuiApp(App):
     TITLE = "HATUI"
     SUB_TITLE = "BlackRainLabs"
     CSS_PATH = "theme.tcss"
+    ALLOW_SELECT = False
     COMMANDS = App.COMMANDS | {JumpProvider}
     BINDINGS = [
         Binding("f1", "help", "Help"),
@@ -82,6 +91,8 @@ class HatuiApp(App):
 
     def __init__(self, backend: object, config: HatuiConfig) -> None:
         super().__init__()
+        self.register_theme(BLACKRAIN)
+        self.theme = "blackrain"
         self.backend = backend
         self.config = config
         self.current_module = "dashboard"
@@ -96,16 +107,13 @@ class HatuiApp(App):
         yield OpsFooter()
 
     def on_mount(self) -> None:
-        self.register_theme(BLACKRAIN)
-        self.theme = "blackrain"
         self.switch_module("dashboard")
         self.set_interval(1.0, self._tick)
         if self.config.needs_login_prompt:
             self.call_after_refresh(self.action_login)
 
     def _tick(self) -> None:
-        self.query_one(OpsHeader).refresh_status()
-        self.query_one(OpsFooter).refresh_status(self.current_module)
+        self.query_one(OpsHeader).tick_clock()
 
     def switch_module(self, module_id: str) -> None:
         center = self.query_one("#center", Vertical)

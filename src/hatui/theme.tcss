@@ -1,6 +1,13 @@
 Screen {
     background: #070708;
     color: #d8dbe0;
+    overflow: hidden;
+    scrollbar-background: #0c0d10;
+    scrollbar-color: #5c6168;
+    scrollbar-color-hover: #8d939c;
+    scrollbar-color-active: #c5ccd4;
+    scrollbar-size-vertical: 1;
+    scrollbar-size-horizontal: 1;
 }
 
 OpsHeader {
@@ -8,10 +15,11 @@ OpsHeader {
     height: 3;
     background: #16171a;
     color: #d8dbe0;
-    border-top: tall #8d939c;
-    border-bottom: tall #2a2c31;
+    border-top: solid #8d939c;
+    border-bottom: solid #2a2c31;
     padding: 0 1;
     layout: horizontal;
+    overflow: hidden;
 }
 
 OpsHeader #clock {
@@ -36,14 +44,14 @@ OpsHeader #product {
 }
 
 OpsHeader #org {
-    width: 56;
+    width: 1fr;
     content-align: left middle;
     color: #a8b0ba;
 }
 
 OpsHeader #health {
-    width: 1fr;
-    content-align: left middle;
+    width: 54;
+    content-align: right middle;
 }
 
 OpsFooter {
@@ -51,8 +59,10 @@ OpsFooter {
     height: 1;
     background: #16171a;
     color: #8b939c;
-    border-top: tall #2a2c31;
+    border-top: solid #2a2c31;
     padding: 0 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #body {
@@ -62,7 +72,9 @@ OpsFooter {
 #sidebar {
     width: 24;
     background: #0c0d10;
-    border-right: tall #2a2c31;
+    border-right: solid #2a2c31;
+    overflow-x: hidden;
+    scrollbar-size-vertical: 1;
 }
 
 #sidebar Tree {
@@ -103,18 +115,19 @@ ObjectBrowser, Dashboard, SyncView, SettingsView {
 #filter-bar {
     height: 3;
     background: #121316;
-    border-bottom: tall #2a2c31;
+    border-bottom: solid #2a2c31;
     padding: 0 1;
+    overflow: hidden;
 }
 
 #filter-bar Input {
     background: #070708;
-    border: tall #3a3d44;
+    border: solid #3a3d44;
     color: #d8dbe0;
 }
 
 #filter-bar Input:focus {
-    border: tall #c5ccd4;
+    border: solid #c5ccd4;
 }
 
 #table-wrap {
@@ -124,6 +137,10 @@ ObjectBrowser, Dashboard, SyncView, SettingsView {
 DataTable {
     background: #070708;
     height: 1fr;
+    scrollbar-size-vertical: 1;
+    scrollbar-size-horizontal: 1;
+    scrollbar-background: #070708;
+    scrollbar-color: #3a3d44;
 }
 
 DataTable > .datatable--header {
@@ -144,7 +161,11 @@ DataTable > .datatable--hover {
 #inspector {
     width: 38;
     background: #0c0d10;
-    border-left: tall #2a2c31;
+    border-left: solid #2a2c31;
+    overflow-x: hidden;
+    scrollbar-size-vertical: 1;
+    scrollbar-background: #0c0d10;
+    scrollbar-color: #3a3d44;
 }
 
 #inspector-title {
@@ -153,7 +174,7 @@ DataTable > .datatable--hover {
     text-style: bold;
     padding: 0 1;
     height: 1;
-    border-bottom: tall #2a2c31;
+    border-bottom: solid #2a2c31;
 }
 
 #inspector-body {
@@ -166,7 +187,7 @@ DataTable > .datatable--hover {
     color: #c5ccd4;
     text-style: bold;
     background: #16171a;
-    border-bottom: tall #2a2c31;
+    border-bottom: solid #2a2c31;
 }
 
 Dashboard {
@@ -175,7 +196,7 @@ Dashboard {
 
 .panel {
     background: #121316;
-    border: tall #3a3d44;
+    border: solid #3a3d44;
     padding: 1;
     margin: 0 1 1 0;
 }

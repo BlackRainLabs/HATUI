@@ -41,6 +41,9 @@ class OpsHeader(Horizontal):
     def on_mount(self) -> None:
         self.refresh_status()
 
+    def tick_clock(self) -> None:
+        self.query_one("#clock", Static).update(datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%SZ"))
+
     def refresh_status(self) -> None:
         app = self.app
         cfg = getattr(app, "config", None)
@@ -67,8 +70,7 @@ class OpsHeader(Horizontal):
             f"{_pill('MODE', health.mode, mode_cls)}"
         )
         self.query_one("#health", Static).update(text)
-        now = datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%SZ")
-        self.query_one("#clock", Static).update(now)
+        self.tick_clock()
 
 
 class OpsFooter(Static):
@@ -90,8 +92,8 @@ class OpsFooter(Static):
             lights = " ".join(bits) if bits else lights
         mod = f"[{module}]  " if module else ""
         self.update(
-            f"{mod}BRL  F1 help   / filter   a actions   n new   r reload   : jump   ^L login   q quit"
-            f"     2×row=actions   JOBS:{jobs}   {lights}"
+            f"{mod}F1 help  / filter  a actions  n new  r reload  : jump  ^L login  q quit"
+            f"  2×row=actions  JOBS:{jobs}  {lights}"
         )
 
 
@@ -155,5 +157,5 @@ class Inspector(VerticalScroll):
             elif upper in {"CRITICAL", "DOWN", "ERROR"} or "conflict" in str(val).lower():
                 cls = "crit"
             color = {"ok": "#c5ccd4", "warn": "#c4a35a", "crit": "#c44545", "val": "#e4e6e9"}.get(cls, "#e4e6e9")
-            lines.append(f"[dim]{key}[/]\n[{color}]{val}[/]")
-        self.query_one("#inspector-body", Static).update("\n\n".join(lines))
+            lines.append(f"[dim]{key}[/]  [{color}]{val}[/]")
+        self.query_one("#inspector-body", Static).update("\n".join(lines))
